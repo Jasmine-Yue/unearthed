@@ -64,17 +64,12 @@ const renderGifts = async () => {
 };
 //At the end of the file (outside of the renderGifts() function definition), call the renderGifts() function.
 
-//reate a variable called requestedURL that extracts the portion of the URL after the /.
+//create a variable called requestedURL that extracts the portion of the URL after the /.
+//!need to slice(3) to avoid the first //
 let requestedURL = window.location.href.split("/").slice(3).join("/");
 
-console.log("current:", window.location.href);
-console.log("split:", window.location.href.split("/"));
-console.log("requestUrl:", requestedURL);
-
-if (requestedUrl) {
-  console.log("404");
+if (requestedURL) {
   window.location.href = "../404.html";
 } else {
-  console.log(" not 404");
   renderGifts();
 }

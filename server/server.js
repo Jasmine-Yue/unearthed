@@ -5,13 +5,15 @@ import "./config/dotenv.js";
 import giftsRouter from "./routes/gifts.js";
 import { config } from "dotenv";
 
+import cors from "cors";
+
 const app = express();
 
-//const publicDirectory = path.join(__dirname, "../client/public");
+//app.use("/public", express.static("./public"));
 
-app.use("/public", express.static("./public"));
+//app.use("/scripts", express.static("./public/scripts"));
 
-app.use("/scripts", express.static("./public/scripts"));
+app.use(cors());
 
 app.use("/gifts", giftsRouter);
 

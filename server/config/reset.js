@@ -37,12 +37,12 @@ const createGiftsTable = async () => {
 
 const seedGiftsTable = async () => {
   await createGiftsTable();
-  await loadGiftsTable();
+  loadGiftsTable();
 };
 
 //s3:load data
-const loadGiftsTable = async () => {
-  giftData.forEach(async (gift) => {
+const loadGiftsTable = () => {
+  giftData.forEach((gift) => {
     const insertQuery = {
       text: "INSERT INTO gifts (name, pricePoint, audience, image, description, submittedBy, submittedOn) VALUES ($1, $2, $3, $4, $5, $6, $7)",
     };
@@ -56,7 +56,7 @@ const loadGiftsTable = async () => {
       gift.submittedOn,
     ];
 
-    await pool.query(insertQuery, values, (err, res) => {
+    pool.query(insertQuery, values, (err, res) => {
       if (err) {
         console.error("⚠️ error inserting gift", err);
         return;
