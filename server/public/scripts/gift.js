@@ -1,6 +1,5 @@
 const renderGift = async () => {
-  
-    const giftContent = document.getElementById("gift-content");
+  const giftContent = document.getElementById("gift-content");
 
   // parse the ID as an int from the URL.
   const requestedID = parseInt(window.location.href.split("/").pop());
@@ -13,6 +12,8 @@ const renderGift = async () => {
     let gift;
     gift = data.find((gift) => gift.id === requestedID);
 
+    console.log("gift at front:", gift);
+
     if (gift) {
       const imageEl = document.querySelector("#image");
 
@@ -24,19 +25,18 @@ const renderGift = async () => {
       nameEl.textContent = gift.name;
 
       const submittedByEl = document.querySelector("#submittedBy");
-      submittedByEl.textContent = gift.submittedBy;
-
-      const submittedOnEl = document.querySelector("#submittedOn");
-      submittedOnEl.textContent = gift.submittedOn;
+      submittedByEl.textContent = ' "Submitted by: "' + gift.submittedby;
 
       const pricePointEl = document.querySelector("#pricePoint");
-      pricePointEl.textContent = gift.pricePoint;
+      pricePointEl.textContent = "Price: " + gift.pricepoint;
 
       const audienceEl = document.querySelector("#audience");
-      audienceEl.textContent = gift.audience;
+      audienceEl.textContent = "Great For: " + gift.audience;
 
       const descriptionEl = document.querySelector("#description");
       descriptionEl.textContent = gift.description;
+
+      document.title = `UnEarthed - ${gift.name}`;
     }
   } else {
     const message = document.createElement("h2");
