@@ -5,6 +5,8 @@ import "./config/dotenv.js";
 import giftsRouter from "./routes/gifts.js";
 import { config } from "dotenv";
 
+import bodyParser from "body-parser";
+
 import cors from "cors";
 
 const app = express();
@@ -14,6 +16,9 @@ const app = express();
 //app.use("/scripts", express.static("./public/scripts"));
 
 app.use(cors());
+
+//app.use(bodyParser.json());
+app.use(express.json());
 
 app.use("/gifts", giftsRouter);
 
