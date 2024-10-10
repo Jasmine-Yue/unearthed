@@ -8,7 +8,7 @@ const Gifts = (props) => {
     const [gifts, setGifts] = useState([])
 
     const fetchGifts=async ()=>{
-        const response=  await fetch('http://localhost:3001/gifts');
+        const response=  await fetch('/gifts');
         const data= await response.json();
         return data;
     }       

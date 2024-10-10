@@ -14,4 +14,10 @@ router.get("/", GiftsController.getGifts);
 
 router.get("/:id", GiftsController.getGiftById);
 
+router.post("/", GiftsController.createGift);
+
+router.patch("/:id", GiftsController.updateGift);
+
+router.delete("/:id", GiftsController.deleteGift);
+
 export default router;

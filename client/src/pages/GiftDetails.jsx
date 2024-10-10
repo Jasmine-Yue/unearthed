@@ -13,7 +13,7 @@ const GiftDetails = ({data}) => {
     console.log('id:',id);
 
     const fetchGift=async (id)=>{
-        const response=await fetch(`http://localhost:3001/gifts/${id}`);
+        const response=await fetch(`/gifts/${id}`);
         const data= await response.json();
         return data;
     }
